@@ -6,11 +6,10 @@ from launch.actions import ExecuteProcess
 from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
-    desc_pkg = get_package_share_directory('robot_description')
-    gazebo_pkg = get_package_share_directory('robot_gazebo')
+    main_pkg = get_package_share_directory('robot_gazebo')
 
-    xacro_file = os.path.join(desc_pkg, 'urdf', 'auto_vehicle.urdf.xacro')
-    world_file = os.path.join(gazebo_pkg, 'world', 'world.world')
+    xacro_file = os.path.join(main_pkg, 'models', 'auto_vehicle', 'auto_vehicle.urdf.xacro')
+    world_file = os.path.join(main_pkg, 'models', 'world', 'world.sdf')
     
     robot_description = xacro.process_file(xacro_file).toxml()
 
@@ -40,8 +39,27 @@ def generate_launch_description():
         output='screen',
     )
 
+    # ROS-Gazebo Bridge
+    gz_bridge_node = Node(
+        package="ros_gz_bridge",
+        executable="parameter_bridge",
+        arguments=[
+            "/clock@rosgraph_msgs/msg/Clock[gz.msgs.Clock",
+            "/cmd_vel@geometry_msgs/msg/Twist@gz.msgs.Twist",
+            "/odom@nav_msgs/msg/Odometry@gz.msgs.Odometry",
+            "/joint_states@sensor_msgs/msg/JointState@gz.msgs.Model",
+            "/tf@tf2_msgs/msg/TFMessage@gz.msgs.Pose_V",
+            "/scan@sensor_msgs/msg/LaserScan@gz.msgs.LaserScan",
+        ],
+        output="screen",
+        parameters=[
+            {'use_sim_time': True},
+        ]
+    )
+
     return LaunchDescription([
         gz_sim_launch,
         robot_state_publisher,
         spawn_entity,
+        gz_bridge_node,
     ])
