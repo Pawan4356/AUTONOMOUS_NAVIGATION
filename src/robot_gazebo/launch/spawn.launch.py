@@ -30,20 +30,15 @@ def generate_launch_description():
     )
 
     # Spawn robot with delay to allow Gazebo to fully start
-    spawn_entity = TimerAction(
-        period=5.0,
-        actions=[
-            Node(
-                package='ros_gz_sim',
-                executable='create',
-                arguments=[
-                    '-topic', '/robot_description',
-                    '-name', 'my_robot',
-                    '-allow_renaming', 'true'
-                ],
-                output='screen',
-            )
-        ]
+    spawn_entity = Node(
+        package='ros_gz_sim',
+        executable='create',
+        arguments=[
+            '-topic', '/robot_description',
+            '-name', 'my_robot',
+            '-allow_renaming', 'true'
+        ],
+        output='screen',
     )
 
     return LaunchDescription([
