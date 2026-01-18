@@ -10,6 +10,9 @@ def generate_launch_description():
 
     xacro_file = os.path.join(main_pkg, 'models', 'auto_vehicle', 'auto_vehicle.urdf.xacro')
     world_file = os.path.join(main_pkg, 'models', 'world', 'world.sdf')
+    # world_file = os.path.join(main_pkg, 'models', 'world', 'industrial-warehouse.sdf')
+    # world_file = os.path.join(main_pkg, 'models', 'world', 'tugbot_depot.sdf')
+    # world_file = os.path.join(main_pkg, 'models', 'world', 'city', 'model.sdf')
     
     robot_description = xacro.process_file(xacro_file).toxml()
 
