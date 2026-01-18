@@ -36,7 +36,6 @@ def generate_launch_description():
         arguments=[
             '-topic', '/robot_description',
             '-name', 'my_robot',
-            '-allow_renaming', 'true'
         ],
         output='screen',
     )
