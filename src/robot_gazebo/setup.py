@@ -15,6 +15,8 @@ setup(
         (os.path.join('share', package_name, 'rviz'), glob('rviz/*.rviz')),
         (os.path.join('share', package_name, 'launch'), glob('launch/*.py')),
         (os.path.join('share', package_name, 'models', 'world'), glob('models/world/*.sdf')),
+        (os.path.join('share', package_name, 'models', 'world'), glob('models/world/*.jpg')),
+        (os.path.join('share', package_name, 'models', 'world'), glob('models/world/*.png')),
         (os.path.join('share', package_name, 'models', 'world', 'city'), glob('models/world/city/*.sdf')),
         (os.path.join('share', package_name, 'models', 'auto_vehicle'), glob('models/auto_vehicle/*.xacro')),
         (os.path.join('share', package_name, 'models', 'auto_vehicle'), glob('models/auto_vehicle/*.gazebo')),

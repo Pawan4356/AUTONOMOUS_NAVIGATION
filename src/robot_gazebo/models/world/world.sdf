@@ -45,7 +45,7 @@
           <geometry>
             <plane>
               <normal>0 0 1</normal>
-              <size>100 100</size>
+              <size>20 20</size>
             </plane>
           </geometry>
         </collision>
@@ -53,17 +53,26 @@
           <geometry>
             <plane>
               <normal>0 0 1</normal>
-              <size>100 100</size>
+              <size>20 20</size>
             </plane>
           </geometry>
           <material>
-            <ambient>0.8 0.8 0.8 1</ambient>
-            <diffuse>0.8 0.8 0.8 1</diffuse>
-            <specular>0.8 0.8 0.8 1</specular>
+            <ambient>1 1 1 1</ambient>
+            <diffuse>1 1 1 1</diffuse>
+            <specular>0.1 0.1 0.1 1</specular>
+            <pbr>
+              <metal>
+                <albedo_map>wooden-floor.jpg</albedo_map>
+              </metal>
+            </pbr>
           </material>
         </visual>
       </link>
     </model>
+
+  <scene>
+    <grid>false</grid>
+  </scene>
 
   </world>
 </sdf>

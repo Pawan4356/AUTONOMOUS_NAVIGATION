@@ -6,11 +6,11 @@
     <!-- Common Properties -->
     
 
-    <xacro:property name="wheel_radius" value="0.08"/>
-    <xacro:property name="wheel_length" value="0.04"/>
-    <xacro:property name="base_size" value="0.4 0.6 0.2"/>
-    <xacro:property name="lidar_radius" value="0.05"/>
-    <xacro:property name="lidar_length" value="0.02"/>
+    <xacro:property name="wheel_radius" value="0.16"/>
+    <xacro:property name="wheel_length" value="0.08"/>
+    <xacro:property name="base_size" value="0.8 1.2 0.4"/>
+    <xacro:property name="lidar_radius" value="0.1"/>
+    <xacro:property name="lidar_length" value="0.04"/>
 
     
     <!-- Materials (same) -->
@@ -130,33 +130,33 @@
     <xacro:fixed_joint name="base_joint"
                        parent="base_footprint"
                        child="base_link"
-                       xyz="0 0 0.08"
+                       xyz="0 0 0.16"
                        rpy="0 0 0"/>
 
     <xacro:fixed_joint name="base_lidar_joint"
                        parent="base_link"
                        child="lidar"
-                       xyz="0 0.3 0.1"
+                       xyz="0 0.6 0.2"
                        rpy="0 0 0"/>
 
     <xacro:wheel_joint name="base_left_back_joint"
                        parent="base_link"
                        child="left_back_wheel"
-                       xyz="-0.22 -0.15 0"/>
+                       xyz="-0.44 -0.3 0"/>
 
     <xacro:wheel_joint name="base_left_front_joint"
                        parent="base_link"
                        child="left_front_wheel"
-                       xyz="0.22 -0.15 0"/>
+                       xyz="0.44 -0.3 0"/>
 
     <xacro:wheel_joint name="base_right_back_joint"
                        parent="base_link"
                        child="right_back_wheel"
-                       xyz="-0.22 0.15 0"/>
+                       xyz="-0.44 0.3 0"/>
 
     <xacro:wheel_joint name="base_right_front_joint"
                        parent="base_link"
                        child="right_front_wheel"
-                       xyz="0.22 0.15 0"/>
+                       xyz="0.44 0.3 0"/>
 
 </robot>

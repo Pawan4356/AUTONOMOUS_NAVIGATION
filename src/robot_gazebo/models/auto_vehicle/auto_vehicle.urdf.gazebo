@@ -14,8 +14,8 @@
         <right_joint>base_right_front_joint</right_joint>
 
         <!-- Wheel parameters -->
-        <wheel_separation>0.4</wheel_separation>
-        <wheel_radius>0.08</wheel_radius>
+        <wheel_separation>0.6</wheel_separation>
+        <wheel_radius>0.16</wheel_radius>
 
         <!-- Control gains and limits (optional) -->
         <max_velocity>3.0</max_velocity>
